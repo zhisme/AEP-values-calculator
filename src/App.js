@@ -3,22 +3,14 @@ import { hot } from "react-hot-loader/root";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Coefficients } from "./components/Coefficients";
+import { Calculator } from "./components/Calculator";
 
 class App extends React.Component {
   render() {
     return (
       <>
         <div className="container-fluid">
-          <div className="row">
-            <div className="col">
-              <Coefficients />
-            </div>
-            <div className="col">
-              <div className="mb-3">
-              </div>
-            </div>
-          </div>
+          <Calculator />
         </div>
       </>
     );
