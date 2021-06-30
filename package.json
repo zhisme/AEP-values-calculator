@@ -10,7 +10,8 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
-    "start": "webpack serve --hot --mode development --port 3005"
+    "start": "webpack serve --hot --mode development --port 3005",
+    "pages": "webpack --mode production -o docs/"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
