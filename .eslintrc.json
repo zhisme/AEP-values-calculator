@@ -1,25 +1,27 @@
 {
-  "rules": {},
-  "env": {
-    "es6": true,
-    "browser": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "plugins": [
-    "react"
-  ]
+  "parser": "babel-eslint",
+  "extends": ["standard", "standard-jsx", "standard-react"],
+  "rules": {
+    "object-curly-spacing": [2, "always"],
+    "no-multi-spaces": [1, {
+      "exceptions": {
+        "AssignmentExpression": true,
+        "VariableDeclarator": true,
+        "ImportDeclaration": true,
+        "Property": true
+      }
+    }],
+    "no-unused-vars": [1, {"args": "all", "argsIgnorePattern": "^_"}],
+    "max-len": [2, {
+      "code": 100,
+      "tabWidth": 2
+    }],
+    "key-spacing": [2, {
+      "mode": "minimum"
+    }],
+    "react/sort-comp": [2],
+    "react/jsx-closing-bracket-location": [2, "line-aligned"],
+    "jsx-quotes": [2, "prefer-double"],
+    "arrow-parens": [2, "always"]
+  }
 }

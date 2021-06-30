@@ -1,3 +1,3 @@
-import Coefficients from "./component";
+import Coefficients from './component'
 
-export { Coefficients };
+export { Coefficients }

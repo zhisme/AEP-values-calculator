@@ -1,3 +1,3 @@
-import Calculator from "./component";
+import Calculator from './container'
 
-export { Calculator };
+export { Calculator }

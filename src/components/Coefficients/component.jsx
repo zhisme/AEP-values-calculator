@@ -1,22 +1,32 @@
-import React from "react";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { AbilityCoefficient } from "../AbilityCoefficient";
+import { StatRow } from '../StatRow'
+import { map, capitalize } from 'lodash'
 
 export default class CoefficientsComponent extends React.Component {
-  render() {
-    const { strength, agility, critical, hit, expertise, haste } =
-      this.props.defaultAEP;
+  static propTypes = {
+    aep: PropTypes.array.isRequired,
+    assignCoefficient: PropTypes.func.isRequired
+  }
+
+  render () {
+    const { aep, assignCoefficient } = this.props
 
     return (
       <>
-        <h4> Stat coefficients. Default is T4 content </h4>
-        <AbilityCoefficient coefficient={strength} name="Strength" />
-        <AbilityCoefficient coefficient={agility} name="Agility" />
-        <AbilityCoefficient coefficient={critical} name="Critical" />
-        <AbilityCoefficient coefficient={hit} name="Hit" />
-        <AbilityCoefficient coefficient={expertise} name="Expertise" />
-        <AbilityCoefficient coefficient={haste} name="Haste" />
+        <h4> Stat coefficient </h4>
+        {map(aep, (coefficient) => {
+          return (
+            <StatRow
+              key={coefficient.name}
+              assignValue={assignCoefficient}
+              item={coefficient}
+              title={capitalize(coefficient.name)}
+            />
+          )
+        })}
       </>
-    );
+    )
   }
 }
