@@ -1,6 +1,8 @@
-# empty-project
+# AEP values calculator WoW Classic Burning Crusade
 
-Empty project.
+Intended usage Rogue class
+
+Online version for usage [calculator](https://zhisme.github.io/AEP-values-calculator/)
 
 ## Building and running on localhost
 
@@ -22,6 +24,12 @@ To create a production build:
 npm run build-prod
 ```
 
+To create pages build:
+
+```sh
+npm run pages
+```
+
 To create a development build:
 
 ```sh
@@ -30,8 +38,20 @@ npm run build-dev
 
 ## Running
 
-Open the file `dist/index.html` in your browser
+```sh
+npm run start
+```
+
+Visit http://localhost:3005/
 
 ## Credits
 
 Made with [createapp.dev](https://createapp.dev/)
+
+## Issues
+
+Any found bugs can be reported with structured template on issues section
+
+## Contribution
+
+Any contributions are welcome, currently any kind of improvements/features/bug-fixes are accepted, feel free to contribute
