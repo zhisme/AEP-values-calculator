@@ -7,7 +7,8 @@ const defaultAep = [
   { name: 'critical', value: 1.83 },
   { name: 'hit', value: 2.54 },
   { name: 'expertise', value: 2.77 },
-  { name: 'haste', value: 2.2 }
+  { name: 'haste', value: 2.2 },
+  { name: 'attack power', value: 1 }
 ]
 
 const defaultItemStats = [
@@ -16,7 +17,8 @@ const defaultItemStats = [
   { name: 'critical', value: 0 },
   { name: 'hit', value: 0 },
   { name: 'expertise', value: 0 },
-  { name: 'haste', value: 0 }
+  { name: 'haste', value: 0 },
+  { name: 'attack power', value: 0 }
 ]
 
 const normalizeItem = (item) => {
@@ -49,14 +51,25 @@ export default class CalculatorStore {
     this.itemStats[idx] = normalizeItem(newItemStat)
   }
 
+  @action resetAepResult () {
+    this.aep = defaultAep
+    this.itemStats = defaultItemStats
+    this.aepResult = null
+  }
+
   @action calculateAepResult () {
-    const [itemAgility, itemStrength, itemCritical, itemHit, itemExpertise, itemHaste] =
-      this.itemStats
-    const [aepAgility, aepStrength, aepCritical, aepHit, aepExpertise, aepHaste] = this.aep
+    const [
+      itemAgility, itemStrength, itemCritical, itemHit, itemExpertise, itemHaste, itemAttackPower
+    ] = this.itemStats
+    const [
+      aepAgility, aepStrength, aepCritical, aepHit, aepExpertise, aepHaste, aepAttackPower
+    ] = this.aep
+    debugger
 
     const result = itemAgility.value * aepAgility.value + itemStrength.value * aepStrength.value +
       itemCritical.value * aepCritical.value + itemHit.value * aepHit.value +
-      itemExpertise.value * aepExpertise.value + itemHaste.value * aepHaste.value
+      itemExpertise.value * aepExpertise.value + itemHaste.value * aepHaste.value +
+      itemAttackPower.value * aepAttackPower.value
 
     this.aepResult = result
   }

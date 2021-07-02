@@ -36,6 +36,16 @@ class CalculatorComponent extends React.Component {
     store.updateItemStats(updatedValue)
   }
 
+  resetResult = (evt) => {
+    const { store } = this.props
+
+    evt.preventDefault()
+
+    this.setState({ calculationResult: null })
+
+    store.resetAepResult()
+  }
+
   calculateResult = (evt) => {
     const { store } = this.props
 
@@ -60,6 +70,13 @@ class CalculatorComponent extends React.Component {
             <div className="col" />
             <div className="col">
               <Coefficients aep={aep} assignCoefficient={assignCoefficient} />
+              {(calculationResult > 0) &&
+                <input
+                  type="submit"
+                  className="btn btn-secondary"
+                  value="Reset"
+                  onClick={(evt) => { this.resetResult(evt) }}
+                />}
             </div>
             <div className="col">
               <ItemStats itemStats={itemStats} assignItemStat={assignItemStat} />
@@ -78,6 +95,7 @@ class CalculatorComponent extends React.Component {
             <div className="col">
               {((calculationResult > 0) && <CalculationInfo calculationResult={calculationResult} />)}
             </div>
+            <div className="col" />
             <div className="col" />
           </div>
 
