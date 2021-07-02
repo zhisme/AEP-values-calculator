@@ -1,49 +1,53 @@
-const webpack = require("webpack");
-const path = require("path");
+const webpack = require('webpack')
+const path = require('path')
 
 const config = {
   mode: 'development',
-  entry: ["react-hot-loader/patch", "./src/index.js"],
+  entry: ['react-hot-loader/patch', './src/index.js'],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'docs'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: "babel-loader",
-        exclude: /node_modules/,
+        use: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader'
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-    ],
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: ['.js', '.jsx'],
     alias: {
-      "react-dom": "@hot-loader/react-dom",
-    },
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   devServer: {
-    contentBase: "./dist",
-  },
-};
+    contentBase: './dist'
+  }
+}
 
-module.exports = config;
+module.exports = config
