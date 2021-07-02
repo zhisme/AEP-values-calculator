@@ -19,6 +19,8 @@ export default class StatRowComponent extends React.Component {
           </label>
           <input
             type="number"
+            step="0.1"
+            min="0"
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="0"
