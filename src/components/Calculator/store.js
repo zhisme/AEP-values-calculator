@@ -2,12 +2,12 @@ import { observable, computed, action } from 'mobx'
 import { findIndex } from 'lodash'
 
 const defaultAep = [
-  { name: 'agility', value: 2.26 },
+  { name: 'agility', value: 2.27 },
   { name: 'strength', value: 1.16 },
-  { name: 'critical', value: 1.83 },
-  { name: 'hit', value: 2.54 },
-  { name: 'expertise', value: 2.77 },
-  { name: 'haste', value: 2.2 },
+  { name: 'critical', value: 1.85 },
+  { name: 'hit', value: 2.57 },
+  { name: 'expertise', value: 2.83 },
+  { name: 'haste', value: 2.3 },
   { name: 'attack power', value: 1 }
 ]
 
@@ -64,7 +64,6 @@ export default class CalculatorStore {
     const [
       aepAgility, aepStrength, aepCritical, aepHit, aepExpertise, aepHaste, aepAttackPower
     ] = this.aep
-    debugger
 
     const result = itemAgility.value * aepAgility.value + itemStrength.value * aepStrength.value +
       itemCritical.value * aepCritical.value + itemHit.value * aepHit.value +

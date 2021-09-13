@@ -10,7 +10,7 @@ class CalculatorContainer extends React.Component {
     const store = new Store()
 
     return (
-      <div>
+      <div className="container">
         <Provider store={store}>
           <Calculator />
         </Provider>
